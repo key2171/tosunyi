@@ -6,6 +6,7 @@ url = f"https://kr.indeed.com/취업?q=python&limit={limit}&radius=25"
 
 
 def extract_indeed_pages():
+    # 나는 토순이다.
     result = requests.get(url)
     soup = BeautifulSoup(result.text, "html.parser")
     pagination = soup.find("div", {"class": "pagination"})
@@ -16,6 +17,7 @@ def extract_indeed_pages():
     for link in links[:-1]:
         pages.append(int(link.string))
     max_page = pages[-1]
+    # 주석 테스트
 
     return (max_page)
 
